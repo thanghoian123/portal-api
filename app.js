@@ -8,8 +8,6 @@ const baseUrl= 'https://portaladmin.orientsoftware.net/api/EmployeeTimeSheet/get
 
 app.use(bodyParser.json())
 app.get('/', async (req, res) => {
-  
-  req.headers['ngrok-skip-browser-warning'] = '1234'
   res.send("hello world")
 })
 app.get('/portal', async (req, res) => {
