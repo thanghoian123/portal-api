@@ -22,7 +22,18 @@ portalRoute.get("/portal", async (req, res) => {
 });
 
 portalRoute.get("/", async (req, res) => {
-  console.log("-------- haha");
-  res.send("hello");
+  console.log("-------- portal");
+  try {
+    const { FromDate, ToDate, EmployeeID } = req.body;
+    const resp = await axios.get(
+      `${baseUrl}?FromDate=${FromDate}&ToDate=${ToDate}&EmployeeID=${EmployeeID}`
+    );
+    if (resp && resp?.data) {
+      res.send({ portal: resp.data });
+    }
+  } catch (error) {
+    res.status(500);
+    res.send({ message: "NGU" });
+  }
 });
 module.exports = portalRoute;
