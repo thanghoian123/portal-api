@@ -7,7 +7,7 @@ const baseUrl =
 
 portalRoute.get("/portal", async (req, res) => {
   console.log("-------- portal");
-  req.send("portal")
+  res.send("portal")
   // try {
   //   const { FromDate, ToDate, EmployeeID } = req.body;
   //   const resp = await axios.get(
@@ -24,7 +24,7 @@ portalRoute.get("/portal", async (req, res) => {
 
 portalRoute.get("/", async (req, res) => {
   console.log("-------- home");
-  req.send("home")
+  res.send("home")
 
 });
 module.exports = portalRoute;
